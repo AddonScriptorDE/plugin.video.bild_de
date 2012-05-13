@@ -29,8 +29,9 @@ def showVideos(url):
             entry=spl[i]
             match=re.compile('<span class="value">(.+?)</span>', re.DOTALL).findall(entry)
             date=match[0].strip()
+            date=date[:6]
             match=re.compile('<span class="kicker">(.+?)</span>', re.DOTALL).findall(entry)
-            title=date+" - "+match[0]
+            title=date+" "+match[0]
             title=cleanTitle(title)
             match=re.compile('<span class="headline">(.+?)</span>', re.DOTALL).findall(entry)
             if len(match)==1:
